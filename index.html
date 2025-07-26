@@ -1,200 +1,290 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>home</title>
-
-   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <title>MyPortfolio</title>
 </head>
 
 <body>
-
-   <header class="header">
-
-      <section class="flex">
-
-         <a href="home.html" class="logo">Foods</a>
-
-         <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#abt">About</a>
-            <a href="#food">Menu</a>
-            <a href="orders.html">Orders</a>
-         </nav>
-
-         <div class="icons">
-            <a href="cart.html"><i class="fas fa-shopping-cart"></i><span>(3)</span></a>
-            <div id="user-btn" class="fas fa-user"></div>
-            <div id="menu-btn" class="fas fa-bars"></div>
-         </div>
-
-         <div class="profile">
-            <p class="name">shaikh anas</p>
-            <div class="flex">
-               <a href="profile.html" class="btn">profile</a>
-               <a href="#" class="delete-btn">logout</a>
+    <nav id="desktop-nav">
+        <div class="logo">LpSion</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">LpSion</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <p class="account"><a href="login.html">login</a> or <a href="register.html">register</a></p>
-         </div>
-
-      </section>
-
-   </header>
-
-
-   <section class="home" id="home">
-
-      <div class="swiper home-slider">
-
-         <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide">
-               <div class="content">
-                  <span>Order Online</span>
-                  <h3>Delicious Pizza</h3>
-                  <a href="#food" class="btn">See Menu</a>
-               </div>
-               <div class="image">
-                  <img src="images/home-img-1.png" alt="">
-               </div>
+            <div class="menu-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
             </div>
-
-         </div>
-
-   </section>
-
-   <section class="about" id="abt">
-
-      <div class="row">
-
-         <div class="image">
-            <img src="images/about-img.svg" alt="">
-         </div>
-
-         <div class="content">
-
-            <h3>About Us ?</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis non odit nihil, doloremque sunt aut
-               placeat culpa. Adipisci minima, neque necessitatibus incidunt nemo eveniet mollitia quis facere vel
-               consectetur culpa?</p>
-            <a href="#food" class="btn">Our Menu</a>
-         </div>
-
-      </div>
-
-   </section>
-
-
-
-
-   <section class="category">
-
-      <h1 class="title">Food Category</h1>
-
-      <div class="box-container">
-
-         <a href="#" class="box">
-            <img src="images/cat-1.png" alt="">
-            <h3>Fast Food</h3>
-         </a>
-
-         <a href="#" class="box">
-            <img src="images/cat-3.png" alt="">
-            <h3>Drinks</h3>
-         </a>
-
-         <a href="#" class="box">
-            <img src="images/cat-4.png" alt="">
-            <h3>Desserts</h3>
-         </a>
-
-      </div>
-
-   </section>
-
-   <section class="products" id="food">
-
-      <h1 class="title">Menu</h1>
-
-      <div class="box-container">
-
-         <div class="box">
-            <a href="quick_view.html" class="fas fa-eye"></a>
-            <button class="fas fa-shopping-cart" type="submit" onclick="test()"></button>
-            <img src="uploaded_img/pizza-1.png" alt="">
-            <a href="category.html" class="cat">fast food</a>
-            <div class="name">delicious pizza 01</div>
-            <div class="flex">
-               <div class="price"><span>$</span>3<span>/-</span></div>
+        </div>
+    </nav>
+    <section id="profile">
+        <div class="section_pic-container">
+            <img src="./assets/profile.png" alt="">
+        </div>
+        <div class="section_text">
+            <p class="section_text_p">Hello, I'm</p>
+            <h1 class="title">LpSion</h1>
+            <p class="section_text_p2">Sofware Engineer!</p>
+            <div class="btn-container">
+                <button class="btn btn-color-1" onclick="location.href='./#contact'">
+                    Contact Info
+                </button>
             </div>
-         </div>
-
-         <div class="box">
-            <a class="fas fa-eye"></a>
-            <button class="fas fa-shopping-cart" type="submit" onclick="test()"></button>
-            <img src="uploaded_img/dish-1.png" alt="">
-            <a href="category.html" class="cat">dishes</a>
-            <div class="name">main dish 01</div>
-            <div class="flex">
-               <div class="price"><span>$</span>3<span>/-</span></div>
+            <div id="socials-container">
+                <a href="https://instagram.com/thelpsion"><img class="icon" src="./assets/instagram.png" /></a>
+                <a href="https://github.com/LpSion"><img class="icon" src="./assets/github.png" /></a>
+                <a href="https://youtube.com/@LpSion"><img class="icon" src="./assets/youtube.png" /></a>
             </div>
-         </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="content">
+            <div class="section-container">
+                <!-- <div class="section_pic-container">
+                <img class="about-pic" src="./assets/.png" alt="">
+            </div> -->
+                <div class="about-details-container">
+                    <p class="section_text_p1">Get To Know More</p>
+                    <h1 class="title">About me</h1>
+                    <div class="about-containers">
+                        <div class="details-container">
+                            <img class="icon" src="./assets/experience.png" alt="">
+                            <h3>Experience</h3>
+                            <p>6+ Years <br>Sofware Engineer</p>
+                        </div>
+                        <div class="details-container">
+                            <img class="icon" src="./assets/Education.png" alt="">
+                            <h3>Education</h3>
+                            <p>Teknologi Komputer (Rangkaiaan)<br></p>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <p>
+                            I am Software Engineer with a strong interest in building practical and user-friendly
+                            digital solutions.
+                            My journey in technology began during my school years, and since then,
+                            I have explored various aspects of software development including web systems, automation
+                            tools,
+                            and Game Development. With hands-on experience in both solo wbased projects,
+                            I believe technology can be a powerful tool to solve real-world problems and improve
+                            everyday life.
+                        </p>
+                    </div>
 
-      </div>
+                </div>
+            </div>
+        </div>
 
-   </section>
+    </section>
+    <img class="icon arrow" onclick="location.href='./#experience'" src="./assets/arrow.png" alt="">
 
-   <section class="steps">
+    <section id="experience">
+        <p class="section_text_p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experience-details-container">
+            <div class="about-containers">
+                <div class="content-experience">
+                    <div class="details-container">
+                        <h2 class="experience-sub-title">Web Development</h2>
+                        <div class="article-container">
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Html</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Css</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>JavaScript</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="details-container">
+                        <h2 class="experience-sub-title">Game Development</h2>
+                        <div class="article-container">
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Unity Engine</h3>
+                                    <p>Intermediate</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Roblox Studio</h3>
+                                    <p>Intermediate</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="details-container">
+                        <h2 class="experience-sub-title">Sofware Development</h2>
+                        <div class="article-container">
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Visual Studio</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Android Studio</h3>
+                                    <p>Beginner</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="details-container">
+                        <h2 class="experience-sub-title">Programming Langguage</h2>
+                        <div class="article-container">
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>C#</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>C++</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Java</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Lua</h3>
+                                    <p>Basic</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="details-container">
+                        <h2 class="experience-sub-title">Others Skills</h2>
+                        <div class="article-container">
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Blender3D</h3>
+                                    <p>Beginner</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>Gimp/PhotoShop</h3>
+                                    <p>Beginner</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                                <div>
+                                    <h3>VideoEditing</h3>
+                                    <p>Intermediate</p>
+                                </div>
+                            </article>
 
-      <h1 class="title">3 simple steps</h1>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
 
-      <div class="box-container">
 
-         <div class="box">
-            <img src="images/step-1.png" alt="">
-            <h3>select food</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, hic.</p>
-         </div>
+    <section id="projects">
+        <p class="section_text_p1">Browse My Recent</p>
+        <h1 class="title">Projects</h1>
+        <div class="experience-details-container">
+            <div class="about-containers">
+                <div class="details-container color-container">
+                    <p>Project Air Sarbat</p>
+                    <div class="article-container">
+                        <!-- <img src="./assets/project-1.png" alt="Project 1" class="project-img" /> -->
+                        <h1>Comming Soon</h1>
+                    </div>
+                    <div style="border: 1px rgb(180, 180, 180) solid; border-radius: 26px; height: 250px; "></div>
+                    <h2 class="experience-sub-title project-title">Project One</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://'">
+                            Preview
+                        </button>
+                    </div>
+                </div>
+                <div class="details-container color-container">
+                    <p>Project Roblox Studio Horror ?</p>
+                    <div class="article-container">
+                        <!-- <img src="./assets/project-2.png" alt="Project 2" class="project-img" /> -->
+                        <h1>Comming Soon</h1>
+                    </div>
+                    <div style="border: 1px rgb(180, 180, 180) solid; border-radius: 26px; height: 250px; "></div>
+                    <h2 class="experience-sub-title project-title">Project Two</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://www.roblox.com/games/12238346277/Untitled-Game-Beta'">
+                            Preview
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" /> -->
+    <section id="contact">
+        <p class="section_text_p1">Get in Touch</p>
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+                <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+                <p><a href="mailto:ryision@gmail.com">ryision@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
 
-         <div class="box">
-            <img src="images/step-2.png" alt="">
-            <h3>30 minutes delivery</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, hic.</p>
-         </div>
+    <footer>
+        <p>Copyright &#169; 2025 LpSion. All Rights Reserved.</p>
+    </footer>
 
-         <div class="box">
-            <img src="images/step-3.png" alt="">
-            <h3>enjoy food!</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, hic.</p>
-         </div>
-
-      </div>
-
-   </section>
-
-   <footer class="footer">
-
-      <div class="credit">&copy; copyright @ 2022 by <span>my team</span> | all rights reserved!</div>
-
-   </footer>
-
-   <div class="loader">
-      <img src="images/loader.gif" alt="">
-   </div>
-
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
