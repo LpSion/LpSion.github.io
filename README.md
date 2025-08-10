@@ -57,8 +57,6 @@
 
 ###
 
-<img src="https://raw.githubusercontent.com/LpSion/LpSion/snake.svg" alt="Snake animation" />
-![Snake animation](https://github.com/LpSion/LpSion/blob/output/github-contribution-grid-snake.svg)
 
 
 ###
