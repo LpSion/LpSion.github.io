@@ -57,7 +57,7 @@
 
 ###
 
-<img src="https://raw.githubusercontent.com/LpSion/LpSion/output/snake.svg" alt="Snake animation" />
+<img src="https://raw.githubusercontent.com/LpSion/LpSion/snake.svg" alt="Snake animation" />
 
 ###
 
