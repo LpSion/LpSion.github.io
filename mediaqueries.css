@@ -12,6 +12,7 @@
     #projects {
         height: fit-content;
     }
+    
 }
 
 @media screen and (max-width: 1200px) {
@@ -75,7 +76,7 @@
 
     .content {
         height: auto;
-        border-radius: 2rem;
+        border-radius: .8rem;
     }
 }
 
@@ -153,7 +154,7 @@
 
     .content {
         height: auto;
-        border-radius: 2rem;
+        border-radius: .8rem;
     }
 
     .content-experience {
