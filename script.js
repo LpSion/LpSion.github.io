@@ -35,7 +35,7 @@
   document.body.appendChild(loader);
 
   window.addEventListener("DOMContentLoaded", () => {
-
+    document.body.style.visibility = "visible";
     setTimeout(() => {
 
       loader.style.opacity = "0";

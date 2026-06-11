@@ -13,6 +13,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    visibility: hidden;
 }
 
 p {
