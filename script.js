@@ -1,6 +1,5 @@
 (function () {
 
-  // CREATE STYLE AUTOMATICALLY
   const style = document.createElement("style");
   style.innerHTML = `
     #autoLoader {
@@ -11,74 +10,79 @@
       justify-content: center;
       align-items: center;
       z-index: 999999;
+      transition: opacity 0.5s ease;
     }
 
     .spinner {
       width: 60px;
       height: 60px;
       border: 6px solid #e5e7eb;
-      border-top: 6px solid #000000;
+      border-top: 6px solid #000;
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
     }
   `;
   document.head.appendChild(style);
 
-  // CREATE LOADER ELEMENT
   const loader = document.createElement("div");
   loader.id = "autoLoader";
-
-  const spinner = document.createElement("div");
-  spinner.className = "spinner";
-
-  loader.appendChild(spinner);
+  loader.innerHTML = `<div class="spinner"></div>`;
   document.body.appendChild(loader);
 
-  // AUTO REMOVE AFTER LOAD
-  window.addEventListener("load", () => {
+  window.addEventListener("DOMContentLoaded", () => {
+
     setTimeout(() => {
-      loader.style.transition = "0.5s";
+
       loader.style.opacity = "0";
 
       setTimeout(() => {
         loader.remove();
 
-        // ==========================================
-        // 1. ANIMATION FOR HERO SECTION (PROFILE)
-        // ==========================================
+        // TEXT ROTATION
         const texts = ["Software Engineer!", "Web Developer!", "Game Developer!"];
         let i = 0;
 
+        const el = document.querySelector(".section_text_p2");
+
+        if (el) {
         setInterval(() => {
-        gsap.to(".section_text_p2", {
+
+            gsap.to(el, {
             opacity: 0,
             duration: 0.3,
             onComplete: () => {
-            i = (i + 1) % texts.length;
-            document.querySelector(".section_text_p2").textContent = texts[i];
 
-            gsap.to(".section_text_p2", {
+                i = (i + 1) % texts.length;
+                el.textContent = texts[i];
+
+                gsap.to(el, {
                 opacity: 1,
                 duration: 0.3
-            });
-            }
-        });
-        }, 3000);
+                });
 
-        // ScrambleText HANYA untuk nama di profile section
-        gsap.to("#profile .title", {
-            duration: 3,
+            }
+            });
+
+        }, 3000);
+        }
+
+        // GSAP CHECK
+        if (window.gsap) {
+          gsap.to("#profile .title", {
+            duration: 2,
             scrambleText: "LpSion"
-        });
+          });
+        }
 
       }, 500);
 
-    }, 1200);
+    }, 3000);
+
   });
 
 })();
@@ -177,6 +181,7 @@ const modalTitle = document.querySelector('#modal-title');
 const modalSubtitle = document.querySelector('#modal-subtitle');
 const modalText = document.querySelector('#modal-text');
 const modalTech = document.querySelector('#modal-tech');
+const modalBody = document.querySelector('#modal-body');
 
 const modalVideo = document.querySelector('#modal-video');
 const modalLink = document.querySelector('#modal-web-link');
@@ -334,6 +339,7 @@ function closeModal() {
     }
 
     document.body.style.overflow = '';
+    modalBody.scrollTop = 0;
 }
 
 modalClose.addEventListener('click', closeModal);
