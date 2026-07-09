@@ -44,7 +44,7 @@
         loader.remove();
 
         // TEXT ROTATION
-        const texts = ["Software Engineer!", "Web Developer!", "Game Developer!"];
+        const texts = ["Software Developer!", "Web Developer!", "Game Developer!"];
         let i = 0;
 
         const el = document.querySelector(".section_text_p2");
