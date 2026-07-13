@@ -1,4 +1,12 @@
-function lockScroll();
+function lockScroll() {
+    document.body.style.overflow = "hidden";
+}
+
+function unlockScroll() {
+    document.body.style.overflow = "auto";
+}
+
+function lockScroll()
 
 (function () {
 
@@ -350,11 +358,3 @@ modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
 });
-
-function lockScroll() {
-    document.body.style.overflow = "hidden";
-}
-
-function unlockScroll() {
-    document.body.style.overflow = "auto";
-}
