@@ -1,12 +1,12 @@
-function lockScroll() {
-    document.body.style.overflow = "hidden";
-}
+// function lockScroll() {
+//     document.body.style.overflow = "hidden";
+// }
 
-function unlockScroll() {
-    document.body.style.overflow = "auto";
-}
+// function unlockScroll() {
+//     document.body.style.overflow = "auto";
+// }
 
-function lockScroll()
+// function lockScroll()
 
 (function () {
 
@@ -97,7 +97,7 @@ function lockScroll()
 
 })();
 
-function unlockScroll();
+// function unlockScroll();
 
 // ==========================================
 // 2. GLOBAL SCROLLTRIGGER FOR ALL SECTIONS
