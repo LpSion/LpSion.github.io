@@ -1,3 +1,5 @@
+function lockScroll();
+
 (function () {
 
   const style = document.createElement("style");
@@ -86,6 +88,8 @@
   });
 
 })();
+
+function unlockScroll();
 
 // ==========================================
 // 2. GLOBAL SCROLLTRIGGER FOR ALL SECTIONS
@@ -346,3 +350,11 @@ modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
 });
+
+function lockScroll() {
+    document.body.style.overflow = "hidden";
+}
+
+function unlockScroll() {
+    document.body.style.overflow = "auto";
+}
