@@ -1,17 +1,17 @@
-// function lockScroll() {
-//     document.body.style.overflow = "hidden";
-// }
+function lockScroll() {
+    document.body.style.overflow = "hidden";
+}
 
-// function unlockScroll() {
-//     document.body.style.overflow = "auto";
-// }
+function unlockScroll() {
+    document.body.style.overflow = "auto";
+}
 
-// function lockScroll()
+lockScroll();
 
 (function () {
 
-  const style = document.createElement("style");
-  style.innerHTML = `
+    const style = document.createElement("style");
+    style.innerHTML = `
     #autoLoader {
       position: fixed;
       inset: 0;
@@ -37,67 +37,68 @@
       to { transform: rotate(360deg); }
     }
   `;
-  document.head.appendChild(style);
+    document.head.appendChild(style);
 
-  const loader = document.createElement("div");
-  loader.id = "autoLoader";
-  loader.innerHTML = `<div class="spinner"></div>`;
-  document.body.appendChild(loader);
+    const loader = document.createElement("div");
+    loader.id = "autoLoader";
+    loader.innerHTML = `<div class="spinner"></div>`;
+    document.body.appendChild(loader);
 
-  window.addEventListener("DOMContentLoaded", () => {
-    document.body.style.visibility = "visible";
-    setTimeout(() => {
+    window.addEventListener("DOMContentLoaded", () => {
+        document.body.style.visibility = "visible";
+        setTimeout(() => {
 
-      loader.style.opacity = "0";
+            loader.style.opacity = "0";
 
-      setTimeout(() => {
-        loader.remove();
+            setTimeout(() => {
+                loader.remove();
 
-        // TEXT ROTATION
-        const texts = ["Software Developer!", "Web Developer!", "Game Developer!"];
-        let i = 0;
+                // TEXT ROTATION
+                const texts = ["Software Developer!", "Web Developer!", "Game Developer!", "It Technician"];
+                let i = 0;
 
-        const el = document.querySelector(".section_text_p2");
+                const el = document.querySelector(".section_text_p2");
 
-        if (el) {
-        setInterval(() => {
+                if (el) {
+                    setInterval(() => {
 
-            gsap.to(el, {
-            opacity: 0,
-            duration: 0.3,
-            onComplete: () => {
+                        gsap.to(el, {
+                            opacity: 0,
+                            duration: 0.3,
+                            onComplete: () => {
 
-                i = (i + 1) % texts.length;
-                el.textContent = texts[i];
+                                i = (i + 1) % texts.length;
+                                el.textContent = texts[i];
 
-                gsap.to(el, {
-                opacity: 1,
-                duration: 0.3
-                });
+                                gsap.to(el, {
+                                    opacity: 1,
+                                    duration: 0.3
+                                });
 
-            }
-            });
+                            }
+                        });
+
+                    }, 3000);
+                }
+
+                // GSAP CHECK
+                if (window.gsap) {
+                    gsap.to("#profile .title", {
+                        duration: 2,
+                        scrambleText: "LpSion"
+                    });
+                }
+
+            }, 500);
+
+            unlockScroll();
 
         }, 3000);
-        }
 
-        // GSAP CHECK
-        if (window.gsap) {
-          gsap.to("#profile .title", {
-            duration: 2,
-            scrambleText: "LpSion"
-          });
-        }
-
-      }, 500);
-
-    }, 3000);
-
-  });
+    });
 
 })();
 
-// function unlockScroll();
 
 // ==========================================
 // 2. GLOBAL SCROLLTRIGGER FOR ALL SECTIONS
@@ -109,36 +110,64 @@ gsap.registerPlugin(ScrollTrigger);
 const sections = ["#about", "#experience", "#projects", "#contact"];
 
 sections.forEach((sectionId) => {
-  
-  // A. Animasi untuk Teks Tajuk (p1 dan title) bagi setiap section
-  gsap.from(`${sectionId} .section_text_p1, ${sectionId} .title`, {
+
+    // A. Animasi untuk Teks Tajuk (p1 dan title) bagi setiap section
+    gsap.from(`${sectionId} .section_text_p1, ${sectionId} .title`, {
+        scrollTrigger: {
+            trigger: sectionId,
+            start: "top 80%",           // Mula animasi bila section cecah 80% screen
+            end: "bottom 20%",          // Batas akhir section
+            toggleActions: "play reverse play reverse" // "reverse" akan buatkan dia fade out/patah balik bila user scroll keluar!
+        },
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+
+    // B. Animasi untuk Kotak Kandungan/Kad di dalam setiap section
+    gsap.from(`${sectionId} .details-container, ${sectionId} .content-experience, ${sectionId} .contact-info-upper-container`, {
+        scrollTrigger: {
+            trigger: sectionId,
+            start: "top 75%",
+            end: "bottom 20%",
+            toggleActions: "play reverse play reverse" // Play masa masuk, reverse (fade out) masa keluar
+        },
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+});
+
+gsap.from(`#technician-experience .section_text_p1, #technician-experience .title`, {
     scrollTrigger: {
-      trigger: sectionId,
-      start: "top 80%",           // Mula animasi bila section cecah 80% screen
-      end: "bottom 20%",          // Batas akhir section
-      toggleActions: "play reverse play reverse" // "reverse" akan buatkan dia fade out/patah balik bila user scroll keluar!
+        trigger: "#technician-experience",
+        start: "top 80%",           // Mula animasi bila section cecah 80% screen
+        end: "bottom 20%",          // Batas akhir section
+        toggleActions: "play reverse play reverse" // "reverse" akan buatkan dia fade out/patah balik bila user scroll keluar!
     },
     y: -50,
     opacity: 0,
     duration: 0.8,
     stagger: 0.2,
     ease: "power2.out"
-  });
+});
 
-  // B. Animasi untuk Kotak Kandungan/Kad di dalam setiap section
-  gsap.from(`${sectionId} .details-container, ${sectionId} .content-experience, ${sectionId} .contact-info-upper-container`, {
+gsap.from(".technician-card", {
     scrollTrigger: {
-      trigger: sectionId,
-      start: "top 75%",
-      end: "bottom 20%",
-      toggleActions: "play reverse play reverse" // Play masa masuk, reverse (fade out) masa keluar
+        trigger: "#technician-experience",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reverse play reverse"
     },
     y: 80,
     opacity: 0,
     duration: 1,
     stagger: 0.2,
     ease: "power3.out"
-  });
 });
 
 
@@ -157,7 +186,7 @@ projectCards.forEach(card => {
             ease: "power2.out"
         });
     });
-    
+
     card.addEventListener('mouseleave', () => {
         gsap.to(card, {
             y: 0,
@@ -173,7 +202,7 @@ projectCards.forEach(card => {
 // ==========================================
 // 4. HAMBURGER MENU FUNCTION
 // ==========================================
-function toggleMenu(){
+function toggleMenu() {
     const menu = document.querySelector(".menu-links");
     const icon = document.querySelector(".hamburger-icon");
     menu.classList.toggle("open");
@@ -208,7 +237,7 @@ let currentImgIndex = 0; // Penanda aras gambar mana yang sedang dipaparkan
 // Fungsi Tukar Gambar di Slider dengan Animasi GSAP Smooth Fade
 // function changeImage(index) {
 //     currentImgIndex = index;
-    
+
 //     // Animasi keluar (Fade Out sebentar sebelum tukar gambar)
 //     gsap.to(modalImg, {
 //         opacity: 0,
@@ -216,7 +245,7 @@ let currentImgIndex = 0; // Penanda aras gambar mana yang sedang dipaparkan
 //         onComplete: () => {
 //             // Tukar src imej selepas imej hilang dari pandangan
 //             modalImg.src = currentImages[currentImgIndex].trim();
-            
+
 //             // Animasi masuk (Fade In imej baharu)
 //             gsap.to(modalImg, { opacity: 1, duration: 0.25 });
 //         }
@@ -277,8 +306,8 @@ function changeImage(index) {
 // Pasang Event Listener klik pada setiap kad projek
 projectCards.forEach(card => {
     const readMoreBtn = card.querySelector('.read-more-btn');
-    
-    
+
+
     readMoreBtn.addEventListener('click', () => {
         // 1. Ambil data teks & pecahkan string data-preview menjadi array gambar
         const rawImages = card.getAttribute('data-preview');

@@ -461,3 +461,54 @@ footer {
 footer p {
     text-align: center;
 }
+
+/* EXPERINCE TECH SECTION */
+#technician-experience{
+    padding-top:3rem;
+}
+
+.technician-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:1.2rem;
+    margin-top:2rem;
+}
+
+.technician-card{
+    border:1px solid rgb(163,163,163);
+    border-radius:1.5rem;
+    padding:1rem;
+    text-align:left;
+    /* transition:0.3s ease; */
+}
+
+.technician-card:hover{
+    transform:translateY(-8px);
+}
+
+.technician-card img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+    border-radius:1rem;
+}
+
+.technician-content h2{
+    font-size:.8rem;
+    margin:1rem 0 .8rem;
+}
+
+.experience-meta{
+    font-size:.75rem;
+    color:gray;
+    line-height:1.5;
+}
+
+.technician-content p:last-child{
+    font-size:.8rem;
+    line-height:1.5;
+}
+
+#technician-experience {
+    margin-bottom: 35px;
+}
